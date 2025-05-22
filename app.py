@@ -1,13 +1,9 @@
- 
 import streamlit as st
-import pickle
+import joblib  # Use joblib, not pickle
 
 # Load the model and vectorizer
-with open('naive_bayes_model.pkl', 'rb') as model_file:
-    model = pickle.load(model_file)
-
-with open('count_vectorizer.pkl', 'rb') as vectorizer_file:
-    vectorizer = pickle.load(vectorizer_file)
+model = joblib.load('naive_bayes_model.pkl')
+vectorizer = joblib.load('count_vectorizer.pkl')
 
 # Streamlit UI
 st.title('Spam Message Classifier')
